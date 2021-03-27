@@ -8,7 +8,7 @@ function footer() {
     return (
         <Container className = " footer justify-content-md-center">
             <Row className="vertical-center">
-                <Col md={{span:3, offset:1}}>
+                <Col md={{span:3, offset:1}} margin-right="0">
                     <Image className="footer-image" src={Logo} roundedCircle  />
                 </Col>
 

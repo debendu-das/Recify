@@ -6,7 +6,7 @@ function ingredient({ingredient, number}) {
     return (
         <Row className="Ingredient">
             <Col sm={9}>
-                <h4><i class="fas fa-edit"></i>&nbsp;&nbsp;&nbsp;  <u>{ingredient['text']}</u></h4>
+                <h4><i class="fa fa-check-circle "></i>&nbsp;&nbsp;<u>{ingredient['text']}</u></h4>
                 <ul>
                     <li>Weight : {ingredient['weight'].toFixed(2)} g</li>
                     <li>Food Category : {ingredient['foodCategory']}</li>
@@ -15,7 +15,6 @@ function ingredient({ingredient, number}) {
             <Col sm={3}
                 className="IngredientImage">
                 <Image
-                    
                     src={ingredient['image'] === null ? noImageAvailable : ingredient['image']}
                     alt="Image Not Available"
                     roundedCircle

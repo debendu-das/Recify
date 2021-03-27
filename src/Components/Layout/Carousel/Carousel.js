@@ -2,6 +2,11 @@ import React from 'react';
 import Aux from '../../../hoc/Auxiliary/Auxiliary';
 import './Carousel.css';
 import { Carousel } from 'react-bootstrap';
+import carousel1 from '../../../assets/carousel1.jpg';
+import carousel2 from '../../../assets/carousel2.jpg';
+import carousel3 from '../../../assets/carousel3.jpg';
+
+
 const carousel =()=>{
 
     return (
@@ -10,7 +15,7 @@ const carousel =()=>{
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src="https://source.unsplash.com/1920x1280/?food"
+                    src={carousel1}
                     alt=""
                     height="100%"
                     />
@@ -22,7 +27,7 @@ const carousel =()=>{
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src="https://source.unsplash.com/1920x1280/?cake"
+                    src={carousel2}
                     alt="Second slide"
                     height="100%"
                     />
@@ -35,7 +40,7 @@ const carousel =()=>{
                 <Carousel.Item>
                     <img
                     className="d-block w-100"
-                    src="https://source.unsplash.com/1920x1280/?cake"
+                    src={carousel3}
                     alt="Third slide"
                     height="100%"
                     />
