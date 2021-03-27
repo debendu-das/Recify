@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Auxiliary/Auxiliary';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row ,Alert } from 'react-bootstrap';
 import './Contact.css';
+import firebase from './../../Axios/firebase';
 
 class Contact extends Component {
 
@@ -14,7 +15,10 @@ class Contact extends Component {
       phno: 9876543210,
       message: "Your message",
       email: "abc@gmail.com",
-      errors: []
+      errors: [],
+      submited: false,
+      success: false,
+      statusAleart: ""
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -82,12 +86,37 @@ class Contact extends Component {
     if (errors.length > 0) {
       return false;
     } else {
-      alert("everything good. submit form!");
+
+      const formdata = {  firstname: this.state.firstname,
+                          lastname: this.state.lastname,
+                          email: this.state.email,
+                          phno: this.state.phno,
+                          message: this.state.message
+                        };
+      console.log('/contact.json', formdata);
+      
+      firebase.post('/contact.json', formdata )
+      .then(response => {
+        console.log(response);
+        this.setState({ submited: true, success: true, statusAleart: "Thanks For Feedback! " });
+      })
+      .catch(error => {
+        console.log(error);
+        this.setState({ submited: true, success: false, statusAleart: error.message });
+      });
+
     }
   }
 
   render() {
     console.log(this.state);
+    const successMsg = (<Alert className="text-center col-md-8" variant={'success'}>
+                          {this.state.statusAleart}
+                      </Alert>);
+    const errorMsg = (<Alert className="text-center col-md-8" variant={'danger'}>
+                          {this.state.statusAleart}<br/>
+                          Please Try Again!
+                      </Alert>);
     return (
         <Aux>
             <Container>
@@ -95,8 +124,12 @@ class Contact extends Component {
                     <h1><u>Contact Me :</u></h1>
                 </Row>
 
+                <Row>
+                {
+                  this.state.submited ? (this.state.success ? successMsg : errorMsg ) : null 
+                }
+                </Row>
                 <form className="row" >
-                  
 
                   {/* First Name */}
                   <div className="col-md-4">
