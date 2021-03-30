@@ -93,15 +93,15 @@ class Contact extends Component {
                           phno: this.state.phno,
                           message: this.state.message
                         };
-      console.log('/contact.json', formdata);
+      
       
       firebase.post('/contact.json', formdata )
       .then(response => {
-        console.log(response);
+        
         this.setState({ submited: true, success: true, statusAleart: "Thanks For Feedback! " });
       })
       .catch(error => {
-        console.log(error);
+        
         this.setState({ submited: true, success: false, statusAleart: error.message });
       });
 
@@ -109,7 +109,7 @@ class Contact extends Component {
   }
 
   render() {
-    console.log(this.state);
+    
     const successMsg = (<Alert className="text-center col-md-8" variant={'success'}>
                           {this.state.statusAleart}
                       </Alert>);

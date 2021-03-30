@@ -31,7 +31,7 @@ const RecipesSearcher = ( props ) => {
         setIndex(LIMIT);
     }, [props.searchItem])
 
-    console.log('RECIPE SEARCHER ', props);
+    
 
     const errorMessage = (<Alert className="text-center" variant={'danger'}>
                             {props.errorMessage}

@@ -16,13 +16,13 @@ function RecipeContent() {
 
     let history = useHistory();
     const location = useLocation();
-    // console.log(location);
+    
     let [recipe] = useState(location.state);
-    // console.log(recipe);
+    
     
     const recipeTitle = recipe.recipe["recipe"]["label"];
     
-    // console.log(recipe.recipe["recipe"]["ingredients"]);
+    
     useEffect(() => {
         window.scrollTo({top: 0, left: 0, behavior: 'smooth' })
       }, [])

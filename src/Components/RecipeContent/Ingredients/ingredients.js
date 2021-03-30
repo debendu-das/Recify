@@ -4,7 +4,7 @@ import Ingredient from './Ingredient/ingredient';
 
 
 function ingredients({ingredients}) {
-    console.log(ingredients);
+    
     return (
         <Col>
             <h2><i class="fas fa-grin-beam"></i> Ingredients List :</h2>

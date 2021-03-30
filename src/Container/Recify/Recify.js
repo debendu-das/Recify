@@ -46,9 +46,9 @@ export class Recify extends Component {
 
     searchHandler = (event) => {
         event.preventDefault();
-        console.log('EVENT VALUE', event);
+        
         const searchItem = event.target[0].value;
-        console.log(searchItem);
+        
 
         this.setState({ searchItem: searchItem, fechting: true });
         const YOUR_APP_ID = "99cf75d9";
@@ -75,7 +75,7 @@ export class Recify extends Component {
                         errorMessage: "Oops!! No Recipes Found. Try Something Diffrent"
                     });
                 }
-                console.log(response.data.hits);
+                
             })
             .catch(error => {
                 
@@ -94,7 +94,7 @@ export class Recify extends Component {
     }
     // '#36D7B7'
     render() {
-        console.log("RECIFY :" , this.state);
+        
         
         return (
             <Aux>
